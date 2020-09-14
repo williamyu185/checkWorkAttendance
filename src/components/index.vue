@@ -34,6 +34,10 @@
             }
         }
         .attendanceDateList {
+            & > div {
+                box-sizing: border-box;
+                width: 50%;
+            }
             & > div:first-of-type {
                 width: 50%;
                 padding: 0 4px;
@@ -72,8 +76,16 @@
             }
             .theadColspan {
                 & > div {
+                    height: 100%;
+                }
+                & > div > div {
+                    box-sizing: border-box;
                     width: 50%;
+                    line-height: 30px;
                     text-align: center;
+                    &:first-of-type {
+                        border-right: 1px solid #cad9ea;
+                    }
                 }
             }
         }
@@ -140,10 +152,10 @@
                     <th width="15%">姓名</th>
                     <th width="22%">组织</th>
                     <th width="20%">部门</th>
-                    <th  colspan="2" class="theadColspan">
-                        <div class="coordination-cli-flex">
-                            <div class="coordination-cli-flex-1">考勤日期</div>
-                            <div class="coordination-cli-flex-1">考勤时间</div>
+                    <th  colspan="2" :class="[a.theadColspan]">
+                        <div class="coordination-cli-flex coordination-cli-flex-align-stretch coordination-cli-flex-align-center">
+                            <div>考勤日期</div>
+                            <div>考勤时间</div>
                         </div>
                     </th>
                 </tr>
@@ -156,8 +168,8 @@
                     <td colspan="2">
                         <div :class="[a.attendanceAllDate]" class="coordination-cli-flex coordination-cli-flex-v">
                             <div :class="[a.attendanceDateList]" class="coordination-cli-flex" v-for="(itemA, indexA) in item.attendance">
-                                <div class="coordination-cli-flex coordination-cli-flex-align-center coordination-cli-flex-pack-center coordination-cli-flex-1">{{itemA.attendanceDate}}</div>
-                                <div :class="[a.attendanceTimeList]" class="coordination-cli-flex coordination-cli-flex-v coordination-cli-flex-1 coordination-cli-flex-pack-center">
+                                <div class="coordination-cli-flex coordination-cli-flex-align-center coordination-cli-flex-pack-center">{{itemA.attendanceDate}}</div>
+                                <div :class="[a.attendanceTimeList]" class="coordination-cli-flex coordination-cli-flex-v coordination-cli-flex-pack-center">
                                     <div class="coordination-cli-flex coordination-cli-flex-align-center coordination-cli-flex-pack-center" v-for="(itemB, indexB) in itemA.attendanceTime">{{itemB.calendartime}}</div>
                                 </div>
                             </div>
