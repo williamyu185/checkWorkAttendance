@@ -1,10 +1,10 @@
 import './asset/css/reset.css';
 import Vue from 'vue';
 import router from './router/index.js';
-import ElementUI from 'element-ui';
+// import ElementUI from 'element-ui';
 import './asset/css/coordination-cli.less';
-import 'element-ui/packages/theme-chalk/lib/reset.css';
-import 'element-ui/packages/theme-chalk/lib/index.css';
+// import 'element-ui/packages/theme-chalk/lib/reset.css';
+// import 'element-ui/packages/theme-chalk/lib/index.css';
 import entry from './view/index.vue';
 import language from './asset/libs/languages/index.js';
 import Vuex from 'vuex';
@@ -34,9 +34,9 @@ Vue.use(Vant);
 // });
 
 Vue.prototype.$http = axios;
-Vue.use(ElementUI, {
-    locale: language.locale
-});
+// Vue.use(ElementUI, {
+//     locale: language.locale
+// });
 Vue.use(Vuex);
 let store = new Vuex.Store(localStore);
 new Vue({
