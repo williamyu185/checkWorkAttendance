@@ -188,6 +188,7 @@
             title="请选择日期"
             :formatter="formatter"
             @confirm="dateConfirm"
+            @cancel="dateCancel"
         />
     </div>
 </div>
@@ -314,6 +315,9 @@ export default {
             });
             return obj;
         },
+        dateCancel() {
+            this.isCalendarShow = false;
+        }
     },
     created() {
         this.tableData = this.tableData.concat(this.tableData).concat(this.tableData); 
